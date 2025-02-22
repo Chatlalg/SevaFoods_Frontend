@@ -159,8 +159,15 @@
 import React from 'react'
 import Cards from "../components/cards";
 import Analytics from "../components/analytics";
-
-const home = () => {
+import Cookies from "js-cookie"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+const Home = () => {
+  const navigate = useNavigate()
+  useEffect(() => {
+    const token = Cookies.get().access_token;
+    if (token) navigate("/donorInfo")
+  }, [])
   return (
     <div>
       <Analytics />
@@ -169,4 +176,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home

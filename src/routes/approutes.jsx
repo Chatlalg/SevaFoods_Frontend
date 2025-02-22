@@ -17,7 +17,7 @@ import RequestPage from "../pages/RequestPage";
 import HistoryPage from "../pages/History";
 import ChatPage from "../pages/chat";
 import DonorExtraInfo from "../pages/DonorExtraInfo";
-
+import CompleteProfile from "../pages/completeProfile";
 const AppRoutes = () => {
   return (
     <div>
@@ -28,6 +28,7 @@ const AppRoutes = () => {
         <Route path="/NGOAuth" element={<NGOAuth />} />
         <Route path="/donorAuth" element={<DonorAuth />} />
         <Route path="/donorInfo" element={<DonorInfo />} />
+        <Route path="/completeProfile" element ={<CompleteProfile/>}/>
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/Geotag" element={<Geotag />} />

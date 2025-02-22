@@ -1,6 +1,6 @@
 // src/pages/feedback.jsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Feedback = () => {
   const [feedback, setFeedback] = useState("");
