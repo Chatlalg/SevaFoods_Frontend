@@ -7,7 +7,6 @@ const DonationHistory = () => {
   const [ngos, setNgos] = useState([])
   const [expanded, setExpanded] = useState({}); // Track expanded rows
   const navigate = useNavigate();
-  const navigate = useNavigate();
   // Fetch donation history
   useEffect(() => {
     const fetchDonations = async () => {
