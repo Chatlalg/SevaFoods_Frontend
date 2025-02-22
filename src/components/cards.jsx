@@ -195,39 +195,40 @@
 // // // export default Carousel;
 
 import React from 'react';
-import Single from '../assets/person.jpg';
-import Double from '../assets/person.jpg';
-import Triple from '../assets/person.jpg';
+import Single from '../assets/cards1.webp';
+import Double from '../assets/cards2.png';
+import Triple from '../assets/cards3.jpeg';
+import Fourth from '../assets/cards4.avif';
 
 const Cards = () => {
   const cardData = [
     {
       img: Single,
       title: "FOOD SAVED",
-      value: "56,000 Tons",
-      text: "56,000 tons of surplus food saved from going to waste, reducing environmental impact and promoting sustainability. 🌍♻️",
-      bgColor: "bg-blue-100",
+      value: "7 Tons",
+      text: "7 tons of surplus food saved from going to waste, reducing environmental impact and promoting sustainability. 🌍♻️",
+      bgColor: "bg-black",
     },
     {
       img: Double,
       title: "NGOs",
-      value: "21 NGOs",
-      text: "21 NGOs empowered with a reliable food supply, helping them feed more people in need. 🤝💙",
-      bgColor: "bg-blue-100",
+      value: "12 NGOs",
+      text: "12 NGOs empowered with a reliable food supply, helping them feed more people in need. 🤝💙",
+      bgColor: "bg-black",
     },
     {
       img: Triple,
       title: "MEALS",
-      value: "60,000",
-      text: "60,000 nutritious meals delivered to underserved communities, ensuring no food goes to waste and no one sleeps hungry. 🍽️✨",
-      bgColor: "bg-blue-100",
+      value: "600",
+      text: "600 nutritious meals delivered to underserved communities, ensuring no food goes to waste and no one sleeps hungry. 🍽️✨",
+      bgColor: "bg-black",
     },
     {
-      img: Triple,
+      img: Fourth,
       title: "DONORS",
-      value: "100",
-      text: "100 donors donated food",
-      bgColor: "bg-blue-100",
+      value: "52",
+      text: "52 donors have successfully contributed and are proud to be part of this initiative!❤️🤝",
+      bgColor: "bg-black",
     },
   ];
 
@@ -235,12 +236,12 @@ const Cards = () => {
     <div className="w-full align-middle py-16 px-4 bg-white">
       <div className="w-full mx-auto grid md:grid-cols-4 gap-4">
         {cardData.map((card, index) => (
-          <div key={index} className={`card w-72 shadow-lg ${card.bgColor} flex flex-col p-4 rounded-lg hover:scale-105 duration-300`}>
+          <div key={index} className={`card w-72 shawdow-lg ${card.bgColor} flex flex-col p-4 rounded-lg hover:scale-105 duration-300`}>
             <img className="w-full h-48 object-cover rounded-t-lg" src={card.img} alt={card.title} />
-            <div className="card-body p-4">
-              <h2 className="text-2xl font-bold text-center">{card.title}</h2>
-              <p className="text-center text-3xl font-bold my-2">{card.value}</p>
-              <p className="text-center text-gray-700">{card.text}</p>
+            <div className="card-body p-4 text-teal-50">
+              <h2 className="text-2xl font-bold text-center text-teal-50">{card.title}</h2>
+              <p className="text-center text-3xl font-bold my-2  text-teal-50">{card.value}</p>
+              <p className="text-center text-teal-50">{card.text}</p>
             </div>
           </div>
         ))}

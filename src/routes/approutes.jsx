@@ -16,6 +16,7 @@ import Geotag from "../pages/Geotag";
 import RequestPage from "../pages/RequestPage";
 import HistoryPage from "../pages/History";
 import ChatPage from "../pages/chat";
+import DonorExtraInfo from "../pages/DonorExtraInfo";
 
 const AppRoutes = () => {
   return (
@@ -33,6 +34,7 @@ const AppRoutes = () => {
         <Route path="/RequestPage" element={<RequestPage />} />
         <Route path="/History" element={<HistoryPage />} />
         <Route path="/Chat" element={<ChatPage />} />
+        <Route path="/DonorExtraInfo" element={<DonorExtraInfo/>} />
       </Routes>
       <Footer /> 
     </div>

@@ -323,27 +323,29 @@
 // export default App;
 
 import React, { useState, useEffect } from "react";
-import canfood from "../assets/canfood.jpg";
+import canfood from "../assets/newcar1.jpeg";
 import donate from "../assets/donate.webp";
 import veggies from "../assets/veggies.avif";
+import donate1 from "../assets/newcar4.png";
+import donate2 from "../assets/nrecar2.png";
 
 const Carousel = () => {
-  const images = [canfood, donate, veggies];
+  const images = [canfood, donate, veggies, donate1, donate2];
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 3000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-screen pt-16 flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-screen pt-2 flex items-center justify-center overflow-hidden">
       {/* Image Container with Smooth Transition */}
       <div className="absolute w-full h-full transition-opacity duration-1000 ease-in-out">
         <img
-          className="w-full h-full object-cover brightness-75"
+          className="w-full h-full object-cover brightness-70"
           src={images[current]}
           alt="carousel"
         />
@@ -357,9 +359,6 @@ const Carousel = () => {
         <p className="text-lg md:text-2xl mt-4 max-w-2xl drop-shadow-md">
           Connecting surplus food sources with NGOs for a hunger-free world.
         </p>
-        <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition">
-          Get Involved
-        </button>
       </div>
 
       {/* Navigation Arrows */}

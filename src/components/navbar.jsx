@@ -74,7 +74,7 @@ const Navbar = () => {
 
   return (
     <div className='z-10 flex justify-between gap-20 items-center h-24 mx-auto px-10 text-white'>
-      <h1 className='text-6xl font-bold text-[#00df9a]'>SEVA.</h1>
+      <h1 className='text-6xl font-bold text-[#00df9a]'>SEVA FOODS.</h1>
       <ul className={`hidden  md:flex gap-5`}>
         <li>
           <Link to= "/">Home</Link></li>

@@ -157,7 +157,6 @@
 
 
 import React from 'react'
-import Newsletter from "../components/newsletter";
 import Cards from "../components/cards";
 import Analytics from "../components/analytics";
 
@@ -166,7 +165,6 @@ const home = () => {
     <div>
       <Analytics />
       <Cards />
-      <Newsletter />
     </div>
   )
 }
