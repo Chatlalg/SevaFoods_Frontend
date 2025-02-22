@@ -241,10 +241,10 @@
 
 // export default DonorInfo;
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import Cookies from "js-cookie"
 // Sample donor experiences with images
 const donations = [
   { id: 1, image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", title: "Helping a Local Shelter", experience: "It was heartwarming to see smiles on everyone's faces when we delivered fresh meals. The gratitude was beyond words." },
@@ -260,6 +260,23 @@ const DonorInfo = () => {
   const toggleFlip = (id) => {
     setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  useEffect(()=>{
+    // console.log("useEffect")
+    const cookies = Cookies.get()
+    // console.log(cookies.access_token)
+    const token = cookies.access_token
+    try {
+      if(!token){
+        // alert("Unauthorized user!")
+        throw new Error("Unauthorized user")
+      }
+
+    } catch (error) {
+      console.log(error)
+      navigate("/completeProfile")
+    }
+  })
 
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-6">

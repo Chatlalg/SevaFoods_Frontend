@@ -49,7 +49,7 @@
 
 // export default navbar
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { Link, useLocation } from 'react-router-dom'
 import  profileIcon from "../assets/profileIcons.png" 
@@ -75,20 +75,20 @@ const Navbar = () => {
   return (
     <div className='z-10 flex justify-between gap-20 items-center h-24 mx-auto px-10 text-white'>
       <h1 className='text-6xl font-bold text-[#00df9a]'>SEVA.</h1>
-      <ul className={`hidden  md:flex gap-5`}>
+      <ul className={`hidden text-white md:flex gap-20 text-xl `}>
         <li>
-          <Link to= "/">Home</Link></li>
+          <Link to= "/" >Donate Now</Link></li>
         <li>
-          <Link to="/History">History</Link></li>
+          <Link to="/History">Past Donations</Link></li>
         <li>
-          <Link to="/feedback">Feedback</Link></li>
+          <Link to="/feedback">Check Active Donations</Link></li>
         <li>
           <Link to="/aboutus">About</Link>
         </li>
         <li className="relative">
           <button onClick={() => setIsOpen(!isOpen)}>Contact</button>
           {isOpen && (
-            <ul className="absolute bg-white text-black right-0 mt-2 w-40 rounded-md shadow-md">
+            <ul className="absolute z-10 bg-white text-black right-0 mt-2 w-fit rounded-md shadow-md">
               <li className="px-4 py-2 hover:bg-gray-100">📧 Email: example@mail.com</li>
               <li className="px-4 py-2 hover:bg-gray-100">📞 Phone: +123 456 7890</li>
             </ul>

@@ -161,12 +161,18 @@
 // // };
 
 // // export default Donate;
-import React from "react";
+
 import Carousel from "../components/carousel";
 import { useNavigate } from "react-router-dom";
-
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 const Donate = () => {
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    const token = Cookies.get().access_token;
+    if(token) navigate("/donorInfo")
+  },[])
 
   return (
     <div className="relative w-full min-h-screen bg-white py-16 px-4 flex flex-col items-center" style={{backgroundImage: "url('../assets/thebg.jpg')"}}>
