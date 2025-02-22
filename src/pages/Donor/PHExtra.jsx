@@ -5,17 +5,17 @@ const DonationHistory = () => {
   const [donations, setDonations] = useState([]);
   const [selectedDonation, setSelectedDonation] = useState(null);
 
-  useEffect(() => {
-    const fetchDonations = async () => {
-      try {
-        const response = await axios.get("/api/donation-history"); // Adjust API endpoint
-        setDonations(response.data);
-      } catch (error) {
-        console.error("Error fetching donation history:", error);
-      }
-    };
-    fetchDonations();
-  }, []);
+  // useEffect(() => {
+  //   const fetchDonations = async () => {
+  //     try {
+  //       const response = await axios.get("/api/donation-history"); // Adjust API endpoint
+  //       setDonations(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching donation history:", error);
+  //     }
+  //   };
+  //   fetchDonations();
+  // }, []);
 
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
