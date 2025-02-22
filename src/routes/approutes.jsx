@@ -20,6 +20,9 @@ import DonorExtraInfo from "../pages/DonorExtraInfo";
 import CompleteProfile from "../pages/completeProfile";
 import DPastHistory from "../pages/Donor/PastHistory"
 import NPastHistory from "../pages/NGO/PastHistory"
+import ActiveDonations from "../pages/Donor/ActiveDonations";
+import DD from "../pages/Donor/DD";
+
 const AppRoutes = () => {
   return (
     <div>
@@ -39,7 +42,9 @@ const AppRoutes = () => {
         {/* <Route path="/Chat" element={<ChatPage />} /> */}
         <Route path="/Donor/PastHistory" element={<DPastHistory/>} />
         <Route path="/NGO/PastHistory" element={<NPastHistory/>} />
-        <Route path="/DonorExtraInfo" element={<DonorExtraInfo/>} />
+        <Route path="/Donor/ExtraInfo" element={<DonorExtraInfo/>} />
+        <Route path="/Donor/ActiveDonation" element={<ActiveDonations />} />
+        <Route path="/Donor/donation" element={<DD/>} />
       </Routes>
       <Footer /> 
     </div>

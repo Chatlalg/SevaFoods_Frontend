@@ -66,17 +66,17 @@ const NgoDonationHistory = () => {
   const [expanded, setExpanded] = useState({});
 
   // Fetch NGO donation history
-  useEffect(() => {
-    const fetchDonations = async () => {
-      try {
-        const response = await axios.get("/api/ngo-donation-history"); // Adjust API endpoint
-        setDonations(response.data);
-      } catch (error) {
-        console.error("Error fetching donation history:", error);
-      }
-    };
-    fetchDonations();
-  }, []);
+//   useEffect(() => {
+//     const fetchDonations = async () => {
+//       try {
+//         const response = await axios.get("/api/ngo-donation-history"); // Adjust API endpoint
+//         setDonations(response.data);
+//       } catch (error) {
+//         console.error("Error fetching donation history:", error);
+//       }
+//     };
+//     fetchDonations();
+//   }, []);
 
   const toggleExpand = (index) => {
     setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));

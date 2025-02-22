@@ -59,11 +59,13 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const DonationHistory = () => {
   const [donations, setDonations] = useState([]);
   const [expanded, setExpanded] = useState({}); // Track expanded rows
-
+  const navigate = useNavigate();
   // Fetch donation history
   useEffect(() => {
     const fetchDonations = async () => {
@@ -113,7 +115,7 @@ const DonationHistory = () => {
                     <td className="p-3">
                       <button
                         className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-                        onClick={() => toggleExpand(index)}
+                        onClick={() => navigate("/Donor/PHExtra")}
                       >
                         {expanded[index] ? "Hide Details" : "View More"}
                       </button>
