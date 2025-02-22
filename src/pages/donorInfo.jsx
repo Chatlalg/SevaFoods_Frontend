@@ -261,22 +261,22 @@ const DonorInfo = () => {
     setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  useEffect(()=>{
-    // console.log("useEffect")
-    const cookies = Cookies.get()
-    // console.log(cookies.access_token)
-    const token = cookies.access_token
-    try {
-      if(!token){
-        // alert("Unauthorized user!")
-        throw new Error("Unauthorized user")
-      }
+  // useEffect(()=>{
+  //   // console.log("useEffect")
+  //   const cookies = Cookies.get()
+  //   // console.log(cookies.access_token)
+  //   const token = cookies.access_token
+  //   try {
+  //     if(!token){
+  //       // alert("Unauthorized user!")
+  //       throw new Error("Unauthorized user")
+  //     }
 
-    } catch (error) {
-      console.log(error)
-      navigate("/completeProfile")
-    }
-  })
+  //   } catch (error) {
+  //     console.log(error)
+  //     navigate("/completeProfile")
+  //   }
+  // })
 
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-6">

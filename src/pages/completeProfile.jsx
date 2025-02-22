@@ -4,16 +4,16 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 const CompleteProfile = () => {
     const navigate = useNavigate();
-    useEffect(() => {
-        const cookies = Cookies.get()
-        const token = cookies.access_token
-        try {
-            if (!token) throw new Error("Unauthorized user")
-        } catch (error) {
-            console.log(error)
-            navigate("/donate")
-        }
-    })
+    // useEffect(() => {
+    //     const cookies = Cookies.get()
+    //     const token = cookies.access_token
+    //     try {
+    //         if (!token) throw new Error("Unauthorized user")
+    //     } catch (error) {
+    //         console.log(error)
+    //         navigate("/donate")
+    //     }
+    // })
     
     const [coordinates, setCoordinates] = useState([])
 

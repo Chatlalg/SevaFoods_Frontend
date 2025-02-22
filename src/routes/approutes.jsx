@@ -18,6 +18,8 @@ import HistoryPage from "../pages/History";
 import ChatPage from "../pages/chat";
 import DonorExtraInfo from "../pages/DonorExtraInfo";
 import CompleteProfile from "../pages/completeProfile";
+import DPastHistory from "../pages/Donor/PastHistory"
+import NPastHistory from "../pages/NGO/PastHistory"
 const AppRoutes = () => {
   return (
     <div>
@@ -31,10 +33,12 @@ const AppRoutes = () => {
         <Route path="/completeProfile" element ={<CompleteProfile/>}/>
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/feedback" element={<Feedback />} />
-        <Route path="/Geotag" element={<Geotag />} />
+        {/* <Route path="/Geotag" element={<Geotag />} /> */}
         <Route path="/RequestPage" element={<RequestPage />} />
         <Route path="/History" element={<HistoryPage />} />
-        <Route path="/Chat" element={<ChatPage />} />
+        {/* <Route path="/Chat" element={<ChatPage />} /> */}
+        <Route path="/Donor/PastHistory" element={<DPastHistory/>} />
+        <Route path="/NGO/PastHistory" element={<NPastHistory/>} />
         <Route path="/DonorExtraInfo" element={<DonorExtraInfo/>} />
       </Routes>
       <Footer /> 

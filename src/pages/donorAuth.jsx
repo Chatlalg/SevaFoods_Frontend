@@ -236,10 +236,10 @@ import {backend_url} from "../../constants.js"
 import { useEffect } from "react";
 import Cookies from "js-cookie"
 const DonorAuth = () => {
-    useEffect(()=>{
-      const token = Cookies.get().access_token;
-      if(token) navigate("/donorInfo")
-    },[])
+    // useEffect(()=>{
+    //   const token = Cookies.get().access_token;
+    //   if(token) navigate("/donorInfo")
+    // },[])
 
   const navigate = useNavigate();
   const [isRegister, setIsRegister] = useState(true);

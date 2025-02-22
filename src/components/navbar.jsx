@@ -73,9 +73,10 @@ const Navbar = () => {
 
 
   return (
-    <div className='z-10 flex justify-between gap-20 items-center h-24 mx-auto px-10 text-white'>
+    <div className='z-10 flex justify-between gap-10 items-center h-24 mx-auto px-8 text-white'>
       <h1 className='text-6xl font-bold text-[#00df9a]'>SEVA FOODS.</h1>
-      <ul className={`hidden text-white md:flex gap-20 text-xl `}>
+      <ul className={`hidden text-white md:flex gap-8
+         text-xl `}>
         <li>
           <Link to= "/" >Donate Now</Link></li>
         <li>
