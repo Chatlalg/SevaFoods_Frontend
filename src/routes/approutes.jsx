@@ -38,9 +38,10 @@ const AppRoutes = () => {
         <Route path="/feedback" element={<Feedback />} />
         {/* <Route path="/Geotag" element={<Geotag />} /> */}
         <Route path="/RequestPage" element={<RequestPage />} />
-        <Route path="/History" element={<HistoryPage />} />
+        {/* <Route path="/History" element={<HistoryPage />} /> */}
         {/* <Route path="/Chat" element={<ChatPage />} /> */}
         <Route path="/Donor/PastHistory" element={<DPastHistory/>} />
+        <Route path="/Donor/PHExtra" element={<PHExtra/>} />
         <Route path="/NGO/PastHistory" element={<NPastHistory/>} />
         <Route path="/Donor/ExtraInfo" element={<DonorExtraInfo/>} />
         <Route path="/Donor/ActiveDonation" element={<ActiveDonations />} />

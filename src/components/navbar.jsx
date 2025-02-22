@@ -80,7 +80,7 @@ const Navbar = () => {
         <li>
           <Link to= "/" >Donate Now</Link></li>
         <li>
-          <Link to="/History">Past Donations</Link></li>
+          <Link to="/Donor/PastHistory">Past Donations</Link></li>
         <li>
           <Link to="/feedback">Check Active Donations</Link></li>
         <li>
