@@ -30,7 +30,7 @@
 //     <div className="flex justify-center items-center h-screen bg-gray-100">
 //       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
 //         <h2 className="text-2xl font-bold text-center mb-4">
-//           {isLogin ? "Donor Login" : "Donor Sign Up"}
+//           {isLogin ? "Donor Login" : "Donor Login"}
 //         </h2>
 //         <form onSubmit={handleSubmit} className="space-y-4">
 //           <input
@@ -87,7 +87,7 @@
 
 //           <button className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
 //           onClick = {() => navigate("/donorInfo")}>
-//             {isLogin ? "Login" : "Sign Up"}
+//             {isLogin ? "Login" : "Login"}
 //           </button>
 //         </form>
 
@@ -97,7 +97,7 @@
 //             onClick={() => setIsLogin(!isLogin)}
 //             className="text-blue-500 underline"
 //           >
-//             {isLogin ? "Sign Up" : "Login"}
+//             {isLogin ? "Login" : "Login"}
 //           </button>
 //         </p>
 //       </div>
@@ -141,7 +141,7 @@
 //     <div className="flex justify-center items-center h-screen bg-gray-100">
 //       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
 //         <h2 className="text-2xl font-bold text-center mb-4">
-//           {isLogin ? "Donor Login" : "Donor Sign Up"}
+//           {isLogin ? "Donor Login" : "Donor Login"}
 //         </h2>
 //         <form onSubmit={handleSubmit} className="space-y-4">
 //           <input
@@ -209,7 +209,7 @@
 //             type="submit"
 //             className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
 //           >
-//             {isLogin ? "Login" : "Sign Up"}
+//             {isLogin ? "Login" : "Login"}
 //           </button>
 //         </form>
 
@@ -219,7 +219,7 @@
 //             onClick={() => setIsLogin(!isLogin)}
 //             className="text-blue-500 underline"
 //           >
-//             {isLogin ? "Sign Up" : "Login"}
+//             {isLogin ? "Login" : "Login"}
 //           </button>
 //         </p>
 //       </div>
@@ -229,16 +229,24 @@
 
 // export default DonorAuth;
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios"
+import {backend_url} from "../../constants.js"
+import { useEffect } from "react";
+import Cookies from "js-cookie"
 const DonorAuth = () => {
+    useEffect(()=>{
+      const token = Cookies.get().access_token;
+      if(token) navigate("/donorInfo")
+    },[])
+
   const navigate = useNavigate();
   const [isRegister, setIsRegister] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    role: "Donor", // Default role selection
+    role: "Donors", // Default role selection
     name: "",
     contactNo: "",
     location: "",
@@ -249,14 +257,40 @@ const DonorAuth = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const email = formData.email
+    const role = formData.role
+    const password = formData.password
     if (isRegister) {
-      alert(`Registered as ${formData.role}: ${formData.email}`);
-      navigate("/donorInfo");
+      const response = await axios.post(`${backend_url}/auth/register`,
+        {role, email, password},
+        {
+          headers : {
+            'Content-Type' : 'application/json'
+          },
+        },
+      )
+      console.log(response)
+      if(response.status === 200){
+        setIsRegister(false)
+        console.log(`Registered as ${formData.role}: ${formData.email}`);
+      }
     } else {
-      alert(`Signed up successfully!`);
-      setIsRegister(true); // Switch back to register after sign-up
+      const response = await axios.post(`${backend_url}/auth/login`,
+        {email,password},
+        {
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          withCredentials: true 
+        }
+      )
+      if(response.status === 200){
+        console.log(response)
+        navigate("/donorInfo")
+      }
+      // setIsRegister(true); // Switch back to register after sign-up
     }
   };
 
@@ -264,7 +298,7 @@ const DonorAuth = () => {
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-2xl font-bold text-center mb-4">
-          {isRegister ? "Register" : "Sign Up"}
+          {isRegister ? "Register" : "Login"}
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -296,7 +330,7 @@ const DonorAuth = () => {
                 className="w-full p-2 border rounded bg-white"
                 required
               >
-                <option value="Donor">Donor</option>
+                <option value="Donors">Donor</option>
                 <option value="NGO">NGO</option>
               </select>
               
@@ -307,7 +341,7 @@ const DonorAuth = () => {
             type="submit"
             className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
           >
-            {isRegister ? "Register" : "Sign Up"}
+            {isRegister ? "Register" : "Login"}
           </button>
         </form>
 
@@ -317,7 +351,7 @@ const DonorAuth = () => {
             onClick={() => setIsRegister(!isRegister)}
             className="text-blue-500 underline"
           >
-            {isRegister ? "Sign Up" : "Register"}
+            {isRegister ? "Login" : "Register"}
           </button>
         </p>
       </div>
