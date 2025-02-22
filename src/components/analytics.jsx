@@ -26,7 +26,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';  
-import Logo from '../assets/logo.jpeg';
+import Logo from '../assets/finallogo.png';
 
 const Analytics = () => {
   return (
@@ -35,8 +35,7 @@ const Analytics = () => {
         <img className='w-[500px] mx-auto my-4' src={Logo} alt='Food Donation' />
         <div className='flex flex-col justify-center'>
           <p className='text-[#00df9a] font-bold '> Join us in reducing food waste and
-             supporting those in need by
-          donating surplus food to trusted NGOs.</p>
+             supporting those in need by donating surplus food to trusted NGOs.</p>
           <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>
            Save Food. Feed Lives. Make an Impact.
           </h1>

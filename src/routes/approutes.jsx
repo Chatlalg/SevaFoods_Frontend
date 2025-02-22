@@ -16,6 +16,12 @@ import Geotag from "../pages/Geotag";
 import RequestPage from "../pages/RequestPage";
 import HistoryPage from "../pages/History";
 import ChatPage from "../pages/chat";
+import DonorExtraInfo from "../pages/DonorExtraInfo";
+import CompleteProfile from "../pages/completeProfile";
+import DPastHistory from "../pages/Donor/PastHistory"
+import NPastHistory from "../pages/NGO/PastHistory"
+import ActiveDonations from "../pages/Donor/ActiveDonations";
+import DD from "../pages/Donor/DD";
 
 const AppRoutes = () => {
   return (
@@ -27,12 +33,19 @@ const AppRoutes = () => {
         <Route path="/NGOAuth" element={<NGOAuth />} />
         <Route path="/donorAuth" element={<DonorAuth />} />
         <Route path="/donorInfo" element={<DonorInfo />} />
+        <Route path="/completeProfile" element ={<CompleteProfile/>}/>
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/feedback" element={<Feedback />} />
-        <Route path="/Geotag" element={<Geotag />} />
+        {/* <Route path="/Geotag" element={<Geotag />} /> */}
         <Route path="/RequestPage" element={<RequestPage />} />
-        <Route path="/History" element={<HistoryPage />} />
-        <Route path="/Chat" element={<ChatPage />} />
+        {/* <Route path="/History" element={<HistoryPage />} /> */}
+        {/* <Route path="/Chat" element={<ChatPage />} /> */}
+        <Route path="/Donor/PastHistory" element={<DPastHistory/>} />
+        <Route path="/Donor/PHExtra" element={<PHExtra/>} />
+        <Route path="/NGO/PastHistory" element={<NPastHistory/>} />
+        <Route path="/Donor/ExtraInfo" element={<DonorExtraInfo/>} />
+        <Route path="/Donor/ActiveDonation" element={<ActiveDonations />} />
+        <Route path="/Donor/donation" element={<DD/>} />
       </Routes>
       <Footer /> 
     </div>
