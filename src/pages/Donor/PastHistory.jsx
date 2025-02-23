@@ -11,23 +11,26 @@ const DonationHistory = () => {
   useEffect(() => {
     const fetchDonations = async () => {
       try {
-        const response = await axios.get(`${backend_url}/donor/viewpastdonations`,
-          {
-            headers: {
-              'Content-Type': "application/json"
-            },
-            withCredentials: true
-          }
-        ); // Adjust API endpoint
-        setDonations(response.data.requests_array)
-        setNgos(response.data.ngoDetailsList)
-        console.log(donations)
+        const response = await axios.get(`${backend_url}/donor/viewpastdonations`, {
+          headers: {
+            'Content-Type': "application/json"
+          },
+          withCredentials: true
+        });
+  
+        console.log("API Response:", response.data); // Debugging
+  
+        // Adjust based on actual response structure
+        setDonations(response.data.requests_array || []); 
+        setNgos(response.data.ngoDetailsList || []);
+        
       } catch (error) {
         console.error("Error fetching donation history:", error);
       }
     };
     fetchDonations();
   }, []);
+  
 
   // Toggle expanded state for each row
   const toggleExpand = (index) => {
@@ -53,8 +56,9 @@ const DonationHistory = () => {
               {donations.map((donation, index) => (
                 <React.Fragment key={donation._id}>
                   <tr className="border-b hover:bg-gray-50">
-                    <td className="p-3">{donation.status === "expired" ? "NA" : ngos[index].name}</td>
-                    <td className="p-3">{donation.status === "expired" ? "NA" : donation.date}</td>
+                  <td className="p-3">{donation.status === "expired" ? "NA" : ngos.find(ngo => ngo._id === donation.ngoId)?.name || "Unknown"}</td>
+
+                    <td className="p-3">{donation.  status === "expired" ? "NA" : donation.date}</td>
                     <td
                       className={`p-3 font-semibold ${donation.status === "accepted" ? "text-green-600" : "text-red-600"
                         }`}

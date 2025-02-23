@@ -21,7 +21,10 @@ import CompleteProfile from "../pages/completeProfile";
 import DPastHistory from "../pages/Donor/PastHistory"
 import NPastHistory from "../pages/NGO/PastHistory"
 import ActiveDonations from "../pages/Donor/ActiveDonations";
+import NActiveDonations from "../pages/NGO/ActiveDonations";
 import DD from "../pages/Donor/DD";
+import PHExtra from "../Pages/Donor/PHExtra"
+
 
 const AppRoutes = () => {
   return (
@@ -45,7 +48,9 @@ const AppRoutes = () => {
         <Route path="/NGO/PastHistory" element={<NPastHistory/>} />
         <Route path="/Donor/ExtraInfo" element={<DonorExtraInfo/>} />
         <Route path="/Donor/ActiveDonation" element={<ActiveDonations />} />
+        <Route path="/NGO/ActiveDonation" element={<NActiveDonations />} />
         <Route path="/Donor/donation" element={<DD/>} />
+        <Route path="/Donor/PHExtra" element={<PHExtra/>} /> 
       </Routes>
       <Footer /> 
     </div>
