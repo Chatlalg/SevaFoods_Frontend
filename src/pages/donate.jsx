@@ -171,8 +171,8 @@ const Donate = () => {
 
   useEffect(()=>{
     const token = Cookies.get().access_token;
-    console.log(token)
     if(token) navigate("/donorInfo")
+    console.log(token || "tokennotfound")
   },[])
   
 

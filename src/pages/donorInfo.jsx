@@ -71,15 +71,15 @@ const DonorInfo = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const foodType = e.target[0].value;
     const foodQuantity = e.target[1].value;
     const donationDetails = e.target[2].value;
-    console.log(foodType);
-    console.log(foodQuantity);
-    console.log(donationDetails);
-    console.log(coordinates);
-
+    // console.log(foodType);
+    // console.log(foodQuantity);
+    // console.log(donationDetails);
+    // console.log(coordinates);
+    
     const response = await axios.post(
       `${backend_url}/donor/donate`,
       { foodType, foodQuantity, coordinates, donationDetails },
@@ -90,8 +90,9 @@ const DonorInfo = () => {
         withCredentials: true,
       }
     );
+    alert("Food donation registered")
   };
-
+  
   useEffect(() => {
     // console.log("useEffect")
     const cookies = Cookies.get();

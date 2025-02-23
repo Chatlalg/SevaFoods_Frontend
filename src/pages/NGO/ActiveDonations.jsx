@@ -103,7 +103,7 @@ const ActiveDonations = () => {
   useEffect(() => {
     const fetchActiveDonations = async () => {
       try {
-        const response = await axios.get("/ngo/getRequests", {
+        const response = await axios.get("/ngo/viewactivedonations", {
           headers: { 'Content-Type': "application/json" }
         });
 

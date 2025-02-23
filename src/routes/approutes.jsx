@@ -36,7 +36,7 @@ const AppRoutes = () => {
         <Route path="/NGOAuth" element={<NGOAuth />} />
         <Route path="/donorAuth" element={<DonorAuth />} />
         <Route path="/donorInfo" element={<DonorInfo />} />
-        <Route path="/completeProfile" element ={<CompleteProfile/>}/>
+        <Route path="/Donor/CompleteProfile" element ={<CompleteProfile/>}/>
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/feedback" element={<Feedback />} />
         {/* <Route path="/Geotag" element={<Geotag />} /> */}
