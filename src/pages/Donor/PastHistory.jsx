@@ -2,34 +2,75 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { backend_url } from "../../../constants.js"
 import { useNavigate } from "react-router-dom";
+
+const requests_array = [
+  {
+    "_id": "1",
+    "date": "2024-02-10",
+    "status": "accepted",
+    "id": "D001",
+    "details": "Donated 5 kg of rice and 2 kg of pulses."
+  },
+  {
+    "_id": "2",
+    "date": "2024-01-25",
+    "status": "pending",
+    "id": "D002",
+    "details": "Donated winter clothes for children."
+  },
+  {
+    "_id": "3",
+    "date": "2023-12-15",
+    "status": "expired",
+    "id": "D003",
+    "details": "Donation request expired due to non-response."
+  },  
+  {
+    "_id": "4",
+    "date": "2023-11-05",
+    "status": "accepted",
+    "id": "D004",
+    "details": "Provided medical supplies including bandages and medicines."
+  }
+]
+  
+const ngoDetailsList =  [
+    { "name": "Helping Hands Foundation" },
+    { "name": "Hope for All" },
+    { "name": "NA" },
+    { "name": "Care and Share" }
+  ]
+
+
 const DonationHistory = () => {
   const [donations, setDonations] = useState([]);
   const [ngos, setNgos] = useState([])
   const [expanded, setExpanded] = useState({}); // Track expanded rows
   const navigate = useNavigate();
-  const navigate = useNavigate();
   // Fetch donation history
-  useEffect(() => {
-    const fetchDonations = async () => {
-      try {
-        const response = await axios.get(`${backend_url}/donor/viewpastdonations`,
-          {
-            headers: {
-              'Content-Type': "application/json"
-            },
-            withCredentials: true
-          }
-        ); // Adjust API endpoint
-        setDonations(response.data.requests_array)
-        setNgos(response.data.ngoDetailsList)
-        console.log(donations)
-      } catch (error) {
-        console.error("Error fetching donation history:", error);
-      }
-    };
-    fetchDonations();
-  }, []);
+  // useEffect(() => {
+  //   const fetchDonations = async () => {
+  //     try {
+  //       const response = await axios.get(`${backend_url}/donor/viewpastdonations`,
+  //         {
+  //           headers: {
+  //             'Content-Type': "application/json"
+  //           },
+  //           withCredentials: true
+  //         }
+  //       ); // Adjust API endpoint
+  //       setDonations(response.data.requests_array)
+  //       setNgos(response.data.ngoDetailsList)
+  //       console.log(donations)
+  //     } catch (error) {
+  //       console.error("Error fetching donation history:", error);
+  //     }
+  //   };
+  //   fetchDonations();
+  // }, []);
 
+  setDonations(requests_array)
+  setNgos(ngoDetailsList)
   // Toggle expanded state for each row
   const toggleExpand = (index) => {
     setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));

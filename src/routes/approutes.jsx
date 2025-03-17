@@ -22,7 +22,7 @@ import DPastHistory from "../pages/Donor/PastHistory"
 import NPastHistory from "../pages/NGO/PastHistory"
 import ActiveDonations from "../pages/Donor/ActiveDonations";
 import DD from "../pages/Donor/DD";
-
+import PHExtra from "../pages/Donor/PHExtra"
 const AppRoutes = () => {
   return (
     <div>
@@ -39,7 +39,7 @@ const AppRoutes = () => {
         {/* <Route path="/Geotag" element={<Geotag />} /> */}
         <Route path="/RequestPage" element={<RequestPage />} />
         {/* <Route path="/History" element={<HistoryPage />} /> */}
-        {/* <Route path="/Chat" element={<ChatPage />} /> */}
+        <Route path="/Chat" element={<ChatPage />} />
         <Route path="/Donor/PastHistory" element={<DPastHistory/>} />
         <Route path="/Donor/PHExtra" element={<PHExtra/>} />
         <Route path="/NGO/PastHistory" element={<NPastHistory/>} />
