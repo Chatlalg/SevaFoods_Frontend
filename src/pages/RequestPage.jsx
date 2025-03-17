@@ -118,12 +118,16 @@ const FoodRequestPage = () => {
   // Fetch available requests from the backend
   const fetchRequests = async () => {
     try {
-      const response = await axios.get("/api/requests"); // Adjust API endpoint if necessary
-      setFoodItems(response.data);
+      const response = await axios.get("/ngo/getRequests");
+      console.log("API Response:", response.data); // Debugging
+  
+      // Assuming the backend sends an object like { data: [...] }
+      setFoodItems(response.data.items || []); // Adjust based on actual structure
     } catch (error) {
       console.error("Error fetching requests:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchRequests();
